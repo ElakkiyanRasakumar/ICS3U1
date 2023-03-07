@@ -16,9 +16,12 @@ def quadratic_formula(a, b, c):
     d = (b**2) - (4*a*c)
     if d < 0:
         return print("There are no specific roots")
-    x1 = (-(b) + sqrt(d))/(2*a)
-    x2 = (-(b) - sqrt(d))/(2*a)
-    return print(x1, x2)
+    elif d == 0:
+        return print(f"The quadratic equation you have specified has one root, at x = {(-(b) + sqrt(d))/(2*a)}")
+    else:
+        x1 = (-(b) + sqrt(d))/(2*a)
+        x2 = (-(b) - sqrt(d))/(2*a)
+        return print(x1, x2)
 
 
 main()
