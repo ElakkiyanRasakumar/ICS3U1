@@ -13,6 +13,17 @@ def main():
     quadratic_formula(a_value, b_value, c_value)
     # print(x1, x2)
 def quadratic_formula(a, b, c):
+    print("With the values give this is your standard form: ")
+    print(f"{a}x{chr(178)}", end="")
+    if b < 0:
+        print(f"{b}x", end="")
+    else:
+        print(f"+{b}x", end="")
+    if c < 0:
+        print(f"{c} = 0", end="")
+    else:
+        print(f"+{c} = 0")
+
     d = (b**2) - (4*a*c)
     if d < 0:
         return print("There are no specific roots")
