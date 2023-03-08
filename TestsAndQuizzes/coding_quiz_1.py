@@ -24,7 +24,6 @@ print (near_a_multiple (10005))	#should return True
 print (near_a_multiple (51))	#should return False
 print (near_a_multiple (411))	#should return False
 print (near_a_multiple (1000001))#should return True
-
 """
 def middle (str):
   return str[len(str)//2] if len(str) % 2 else str[len(str)//2-1: len(str)//2+1]
