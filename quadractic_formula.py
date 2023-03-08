@@ -14,7 +14,10 @@ def main():
     # print(x1, x2)
 def quadratic_formula(a, b, c):
     print("With the values give this is your standard form: ")
-    print(f"{a}x{chr(178)}", end="")
+    if a == 1:
+        print(f"x{chr(178)}", end="")
+    if a == -1:
+        print(f"-x{chr(178)}", end="")
     if b < 0:
         print(f"{b}x", end="")
     else:
