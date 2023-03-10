@@ -50,16 +50,6 @@ def int_or_float_check_and_returning_that_number(constant):
             continue
 
 
-"""
-^^^ Theodore's Solution to this:
-value = input(f"What is your {constant} value? ")
-if not value.replace(".", "", 1).isdigit():
-    continue
-break
-return float(value) if "." in value else int(value)
-"""
-
-
 def quadratic_formula(a, b, c):
     print("With the values given this is your standard form: ")
 
