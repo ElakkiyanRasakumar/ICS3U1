@@ -1,5 +1,6 @@
 from math import *
 
+
 def main():
     print("""
     Welcome!
@@ -9,29 +10,43 @@ def main():
     This program will calculate the roots
     """)
 
-    quadratic_formula(int_or_float_check("a"), int_or_float_check("b"), int_or_float_check("c"))
+    quadratic_formula(int_or_float_check_and_returning_that_number("a"),
+                      int_or_float_check_and_returning_that_number("b"),
+                      int_or_float_check_and_returning_that_number("c"))
 
 
-def int_or_float_check(constant):
+def int_or_float_check_and_returning_that_number(constant):
     while True:
         try:
+            # print("0")
             value = input(f"What is your {constant} value? ")
-            is_float = False
-            if "." in value:
-                for i in value[value.index(".") + 1:]:
-                    if i != "0":
-                        is_float = True
-                        value = float(value)
-                        break
-                if not is_float:
-                    value = round(float(value))
+            if value != "0":
+                # print("1")
+                is_float = False
+                if "." in value:
+                    # print("2")
+                    for i in value[value.index(".") + 1:]:
+                        if i != "0":
+                            # print("3")
+                            is_float = True
+                            value = float(value)
+                            break
+                    if not is_float:
+                        value = round(float(value))
+                        return int(value)
+                    if is_float:
+                        return float(value)
+                else:
                     return int(value)
-                if is_float:
-                    return float(value)
+            elif constant != "b" and constant != "c":
+                print(
+                    f"Please enter a\033[1;31m valid\033[0m number for your \033[1;32m{constant}\033[0m value")
+                # Through ASCI, I get colored text. You live you learn
+                continue
             else:
-                return int(value)
-
+                return 0
         except ValueError or TypeError:
+            print(f"Please enter a\033[1;31m valid\033[0m number for your \033[1;32m{constant}\033[0m value")
             continue
 
 
@@ -66,6 +81,7 @@ def quadratic_formula(a, b, c):
                 print(f"+{b}x", end="")
             else:
                 print(f"{b}x", end="")
+    if c != 0:
         if c < 0:
             print(f"{c} = 0")
         else:
