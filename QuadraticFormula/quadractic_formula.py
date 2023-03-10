@@ -18,16 +18,12 @@ def main():
 def int_or_float_check_and_returning_that_number(constant):
     while True:
         try:
-            # print("0")
             value = input(f"What is your {constant} value? ")
             if value != "0":
-                # print("1")
                 is_float = False
                 if "." in value:
-                    # print("2")
                     for i in value[value.index(".") + 1:]:
                         if i != "0":
-                            # print("3")
                             is_float = True
                             value = float(value)
                             break
