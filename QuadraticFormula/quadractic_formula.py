@@ -1,4 +1,6 @@
 from math import *
+import numpy
+import matplotlib.pyplot as plt
 
 
 def main():
@@ -76,13 +78,43 @@ def quadratic_formula(a, b, c):
         print(f" = 0")
 
     d = (b ** 2) - (4 * a * c)
+    plt.axhline(0, color="black")
+    plt.axvline(0, color="black")
+    plt.grid()
     if d < 0:
+        x_midpoint = -b / 2 * a
+        if x_midpoint > 0:
+            x = numpy.linspace(-x_midpoint, x_midpoint + (2 * x_midpoint))
+        elif x_midpoint < 0:
+            x = numpy.linspace(x_midpoint - (abs(x_midpoint) - x_midpoint), abs(x_midpoint))
+        else:
+            x = numpy.linspace(-a, a)
+        y = a * x ** 2 + b * x + c
+        plt.plot(x, y)
+        plt.show()
         return print("There are no specific roots")
     elif d == 0:
-        return print(f"The quadratic equation you have specified has one root, at x = {(-b + sqrt(d)) / (2 * a)}")
+        zero = (-b + sqrt(d)) / (2 * a)
+        if zero < 0:
+            x = numpy.linspace(zero - (abs(zero) - zero), abs(zero))
+        elif zero > 0:
+            x = numpy.linspace(-zero, zero + (2 * zero))
+        else:
+            x = numpy.linspace(-a, a)
+        plt.plot(x, y)
+        plt.show()
+        return print(f"The quadratic equation you have specified has one root, at x = {zero}")
     else:
         x1 = (-b + sqrt(d)) / (2 * a)
         x2 = (-b - sqrt(d)) / (2 * a)
+        x_values = [x1, x2]
+        middle_to_zero = (abs(x1) + abs(x2)) / 2
+        lowest_x_value = (min(x_values) - middle_to_zero)
+        highest_x_value = (max(x_values) + middle_to_zero)
+        x = numpy.linspace(lowest_x_value, highest_x_value)
+        y = a * x ** 2 + b * x + c
+        plt.plot(x, y)
+        plt.show()
         return print(f"Your two roots are x₁ = {x1} and x₂ = {x2}")
 
 
