@@ -50,7 +50,6 @@ def int_or_float_check_and_returning_that_number(constant):
 
 def quadratic_formula(a, b, c):
     print("With the values given this is your standard form: ")
-
     if abs(a) == 1:
         if a == -1:
             print(f"-x{chr(178)}", end="")
