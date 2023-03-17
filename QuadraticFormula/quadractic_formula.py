@@ -78,9 +78,6 @@ def quadratic_formula(a, b, c):
         print(f" = 0")
 
     discriminant = (b ** 2) - (4 * a * c)
-    plt.axhline(0, color="black")
-    plt.axvline(0, color="black")
-    plt.grid()
     if discriminant < 0:
         x_midpoint = -b / 2 * a
         print("There are no specific roots")
@@ -97,19 +94,22 @@ def quadratic_formula(a, b, c):
 
 
 def get_and_plot_graph_values(midpoint, a, b, c, x1, x2):
-    if x1 is None:
-        if midpoint < 0:
+    if x1 is None:  # If there is not 2 roots
+        if midpoint < 0:  # If midpoint is less than 0
             x = numpy.linspace(midpoint - (abs(midpoint) - midpoint), abs(midpoint))
-        elif midpoint > 0:
+        elif midpoint > 0:  # If midpoint is greater than 0
             x = numpy.linspace(-midpoint, midpoint + (2 * midpoint))
-        else:
+        else:  # If midpoint is right on 0
             x = numpy.linspace(-a, a)
-    else:
+    else:  # If there are 2 zeros
         x_values = [x1, x2]
         middle_to_zero = (abs(x1) + abs(x2)) / 2
         lowest_x_value = (min(x_values) - middle_to_zero)
         highest_x_value = (max(x_values) + middle_to_zero)
         x = numpy.linspace(lowest_x_value, highest_x_value)
+    plt.axhline(0, color="black")  # X-Axis Line
+    plt.axvline(0, color="black")  # Y-Axis Line
+    plt.grid()  # Show grid
     y = a * x ** 2 + b * x + c
     plt.plot(x, y)
     plt.show()
