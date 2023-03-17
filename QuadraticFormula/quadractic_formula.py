@@ -101,6 +101,7 @@ def quadratic_formula(a, b, c):
             x = numpy.linspace(-zero, zero + (2 * zero))
         else:
             x = numpy.linspace(-a, a)
+        y = a * x ** 2 + b * x + c
         plt.plot(x, y)
         plt.show()
         return print(f"The quadratic equation you have specified has one root, at x = {zero}")
